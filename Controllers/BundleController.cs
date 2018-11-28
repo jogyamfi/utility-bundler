@@ -45,55 +45,55 @@ namespace utility_web_server.Controllers
             return File(stream, "application/javascript");
         }
 
-        [HttpGet("/pedigree-editor-tool/resources/{resource}")]
-        public IActionResult Resources(string resource)
-        {
-                 var resourceFolderLocation = _configuration["BundleLocation:Resource"];
+        // [HttpGet("/pedigree-editor-tool/resources/{resource}")]
+        // public IActionResult Resources(string resource)
+        // {
+        //          var resourceFolderLocation = _configuration["BundleLocation:Resource"];
                 
-                 List<string> subpaths = new List<string>();
+        //          List<string> subpaths = new List<string>();
 
-                 subpaths.Add(resourceFolderLocation);
+        //          subpaths.Add(resourceFolderLocation);
 
-                if (resource.IndexOf('/')>-1)
-                {
-                    var paths = resource.Split('/');
+        //         if (resource.IndexOf('/')>-1)
+        //         {
+        //             var paths = resource.Split('/');
 
 
-                   subpaths.AddRange(paths);
+        //            subpaths.AddRange(paths);
 
                     
                     
-                }
+        //         }
 
-                var finalPath = System.IO.Path.Combine(subpaths.ToArray());
+        //         var finalPath = System.IO.Path.Combine(subpaths.ToArray());
 
-                string returnType ="font/woff2; charset=UTF-8";
+        //         string returnType ="font/woff2; charset=UTF-8";
 
-                if (subpaths.Any(u=>u.IndexOf(".png")>-1))
-                {
-                    returnType = "image/png";
-                }
-                else if (subpaths.Any(u=>u.IndexOf("woff2")>-1))
-                {
-                     returnType = "font/woff2; charset=UTF-8";
-                }
+        //         if (subpaths.Any(u=>u.IndexOf(".png")>-1))
+        //         {
+        //             returnType = "image/png";
+        //         }
+        //         else if (subpaths.Any(u=>u.IndexOf("woff2")>-1))
+        //         {
+        //              returnType = "font/woff2; charset=UTF-8";
+        //         }
 
-                try
-                {
-                     byte[] fileData = System.IO.File.ReadAllBytes(finalPath);
+        //         try
+        //         {
+        //              byte[] fileData = System.IO.File.ReadAllBytes(finalPath);
 
-                    var stream = GenerateStreamFromByte(fileData);
+        //             var stream = GenerateStreamFromByte(fileData);
 
-                     return File(stream, returnType);
-                }
-                catch (Exception ex){
+        //              return File(stream, returnType);
+        //         }
+        //         catch (Exception ex){
                     
-                    System.Diagnostics.Debug.WriteLine(ex.Message);
-                    return NotFound();
-                }
+        //             System.Diagnostics.Debug.WriteLine(ex.Message);
+        //             return NotFound();
+        //         }
 
-                 return NotFound();
-        }
+        //          return NotFound();
+        // }
 
         private string LoadJSFiles(string location )
         {

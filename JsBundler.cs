@@ -37,7 +37,7 @@ namespace utility_web_server
         }
 
 
-        private static string[] _bundles = new string[] {"js/require.js", "js/prototype.js", "js/localization.js", "js/WebService.js","js/xwiki.js",
+        private static string[] _bundles = new string[] {"js/require.js","js/utils.js","js/bootstrapper.js", "js/prototype.js", "js/localization.js", "js/WebService.js","js/xwiki.js",
                     "rest/config.js","rest/version.js","js/effects.js","js/DateTimePicker.js","js/datepicker.js",
                     "js/searchSuggest.js","js/lock.js","js/livevalidation_prototype.js","js/fullScreen.js", "js/slider.js",
                     "js/dragdrop.js","js/raphael.js", "js/helpers.js","js/queues.js","js/baseGraph.js","js/xcoordclass.js",
@@ -56,7 +56,7 @@ namespace utility_web_server
                     "js/view.js","js/svgWrapper.js","js/workspace.js","js/cancersLegend.js","js/printEngine.js",
                     "js/printDialog.js","js/pedigree.js","js/actionButtons.js","js/ContentTopMenu.js","js/PushPatient.js",
                     "js/compatibility.js","js/markerScript.js","js/pedigreeDate.js","js/pedigreeEditorParameters.js",
-                    "js/Widgets.js"};
+                    "js/Widgets.js","js/startup.js"};
 
 
     }
